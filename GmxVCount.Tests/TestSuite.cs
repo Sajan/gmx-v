@@ -69,6 +69,12 @@ namespace GmxVCount.Tests
 			Debug.WriteLine(wordCount.ToString());
 		}
 
+		[Test]
+		public void WhitespaceTest()
+		{
+			Test("en-US", "Test" + (char)0x00A0 + "non-breaking" + (char)0x2007 + "spaces" + (char)0x202F + "test.", 4);
+		}
+
 		// Simple tests.
 		[TestCase("en-GB", "This is a test.", 4)]
 		[TestCase("en-GB", "This sentence has a word count of 9 words.", 9)]
