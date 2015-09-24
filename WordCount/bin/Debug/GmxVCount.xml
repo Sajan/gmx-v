@@ -1,0 +1,705 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GmxVCount</name>
+    </assembly>
+    <members>
+        <member name="T:GmxVCount.Language">
+            <summary>
+            Represents a given language code.
+            </summary>
+        </member>
+        <member name="M:GmxVCount.Language.#ctor">
+            <summary>
+            Remains protected for serialization.
+            </summary>
+        </member>
+        <member name="M:GmxVCount.Language.#ctor(System.String)">
+            <summary>
+            Creates an instance of the Language class.
+            </summary>
+            <param name="isoCode"></param>
+        </member>
+        <member name="P:GmxVCount.Language.IsoCode">
+            <summary>
+            Gets or sets the ISO code for the given language.
+            </summary>
+        </member>
+        <member name="M:GmxVCount.Language.IsCultureCodeValid(System.String)">
+            <summary>
+            Checks whether a given culture code is valid.
+            </summary>
+            <param name="isoCode">The ISO code to validate.</param>
+            <returns>True if the ISO code is valid, false if it isn't.</returns>
+        </member>
+        <member name="P:GmxVCount.Language.Parent">
+            <summary>
+            Retrieves the parent language for this culture code. 
+            </summary>
+        </member>
+        <member name="P:GmxVCount.Language.Root">
+            <summary>
+            Walks up the heirarchy of cultures to find the root culture.  For instance,
+            if fr-FR is passed in, the method will return "fr".
+            </summary>
+            <returns>The parent culture.</returns>
+        </member>
+        <member name="P:GmxVCount.Language.IsLogographicLanguage">
+            <summary>
+            Returns true when the current language is considered to be 
+            logographic.
+            </summary>
+        </member>
+        <member name="M:GmxVCount.Language.op_Equality(GmxVCount.Language,GmxVCount.Language)">
+            <summary>
+            Overrides the behaviour of the equality operator to provide 
+            natural usage of the type.  Reference types are compared based
+            on their memory locations, but we want to compare the Language
+            type base on its ISO code property.
+            </summary>
+            <param name="x">Language A</param>
+            <param name="y">Language B</param>
+            <returns>True if the Languages are equal, false if not.</returns>
+        </member>
+        <member name="M:GmxVCount.Language.op_Inequality(GmxVCount.Language,GmxVCount.Language)">
+            <summary>
+            Overrides the behaviour of the inequality operator to provide 
+            natural usage of the type.  Reference types are compared based
+            on their memory locations, but we want to compare the Language
+            type base on its ISO code property.
+            </summary>
+            <param name="x">Language A</param>
+            <param name="y">Language B</param>
+            <returns>True if the Languages are inequal, false if not.</returns>
+        </member>
+        <member name="M:GmxVCount.Language.Equals(System.Object)">
+            <summary>
+            Determines whether the input object is equal to this object.
+            </summary>
+            <param name="obj">The object to compare against.</param>
+            <returns>True if the objects are equal, false if not.</returns>
+        </member>
+        <member name="M:GmxVCount.Language.GetHashCode">
+            <summary>
+            Provides a default implementation of GetHashCode.
+            </summary>
+            <returns>A hash of the object.</returns>
+        </member>
+        <member name="T:GmxVCount.TextBlocks.Character">
+            <summary>
+            Represents a character within a textblock (i.e. not a word 
+            break).
+            </summary>
+        </member>
+        <member name="M:GmxVCount.TextBlocks.Character.#ctor(System.Char)">
+            <summary>
+            Creates an instance of the Character text block particle.
+            </summary>
+            <param name="value">The character to add.</param>
+        </member>
+        <member name="M:GmxVCount.TextBlocks.Character.#ctor(System.Char,GmxVCount.TextBlocks.WordBoundaryRule)">
+            <summary>
+            Creates an instance of the Character text block particle.
+            </summary>
+            <param name="value">The character to add.</param>
+            <param name="rule">The rule from TR-29 which was matched to not force a word break.</param>
+        </member>
+        <member name="P:GmxVCount.TextBlocks.Character.Value">
+            <summary>
+            The character within the text block.
+            </summary>
+        </member>
+        <member name="P:GmxVCount.TextBlocks.Character.Rule">
+            <summary>
+            The rule from TR-29 which was matched to not force a word break.
+            </summary>
+        </member>
+        <member name="T:GmxVCount.TextBlocks.TextBlock">
+            <summary>
+            Represents a block of text which has been word counted.
+            </summary>
+        </member>
+        <member name="P:GmxVCount.TextBlocks.TextBlock.Text">
+            <summary>
+            Returns the text.
+            </summary>
+        </member>
+        <member name="P:GmxVCount.TextBlocks.TextBlock.WordCount">
+            <summary>
+            Retrieves the Word Count from the TextBlock data.
+            </summary>
+        </member>
+        <member name="F:GmxVCount.TextBlocks.TextBlock.NonspaceRegularExpression">
+            <summary>
+            Matches any letter or number.  See http://msdn.microsoft.com/en-us/library/20bw873z.aspx#Y16809 
+            </summary>
+        </member>
+        <member name="P:GmxVCount.TextBlocks.TextBlock.Words">
+            <summary>
+            Iterates through the TextBlock data and splits the text into words.
+            </summary>
+        </member>
+        <member name="P:GmxVCount.TextBlocks.TextBlock.TextWithWords">
+            <summary>
+            Returns the text, but showing the counted and non-counted
+            word boundaries within it.
+            </summary>
+        </member>
+        <member name="P:GmxVCount.TextBlocks.TextBlock.TextWithBoundaries">
+            <summary>
+            Returns the text, but showing the word boundaries within it.
+            </summary>
+        </member>
+        <member name="T:GmxVCount.TextBlocks.TextBlockParticle">
+            <summary>
+            The base class for TextBlocks (e.g. a Character or Word Break).
+            </summary>
+        </member>
+        <member name="T:GmxVCount.TextBlocks.WordBoundary">
+            <summary>
+            Represents a word boundary within a text block.
+            </summary>
+        </member>
+        <member name="M:GmxVCount.TextBlocks.WordBoundary.#ctor(GmxVCount.TextBlocks.WordBoundaryRule)">
+            <summary>
+            Creates an instance of a Word boundary.
+            </summary>
+            <param name="rule">The rule from TR-29 which was matched to force the word break.</param>
+        </member>
+        <member name="P:GmxVCount.TextBlocks.WordBoundary.Rule">
+            <summary>
+            The rule from TR-29 which was matched to force the word break.
+            </summary>
+        </member>
+        <member name="T:GmxVCount.TextBlocks.WordBoundaryRule">
+            <summary>
+            Represents the word boundary rules provided by TR29.
+            </summary>
+        </member>
+        <member name="F:GmxVCount.TextBlocks.WordBoundaryRule.None">
+            <summary>
+            No word boundary rule is applicable.
+            </summary>
+        </member>
+        <member name="F:GmxVCount.TextBlocks.WordBoundaryRule.WB1">
+            <summary>
+            Break at the start and end of text.
+            </summary>
+        </member>
+        <member name="F:GmxVCount.TextBlocks.WordBoundaryRule.WB2">
+            <summary>
+            Break at the start and end of text.
+            </summary>
+        </member>
+        <member name="F:GmxVCount.TextBlocks.WordBoundaryRule.WB3">
+            <summary>
+            Do not break within CRLF.
+            </summary>
+        </member>
+        <member name="F:GmxVCount.TextBlocks.WordBoundaryRule.WB3a">
+            <summary>
+            Otherwise, break before and after newlines.
+            </summary>
+        </member>
+        <member name="F:GmxVCount.TextBlocks.WordBoundaryRule.WB3b">
+            <summary>
+            Otherwise, break before and after newlines.
+            </summary>
+        </member>
+        <member name="F:GmxVCount.TextBlocks.WordBoundaryRule.WB4">
+            <summary>
+            Ignore format and extend characters.
+            </summary>
+        </member>
+        <member name="F:GmxVCount.TextBlocks.WordBoundaryRule.WB5">
+            <summary>
+            Do not break between most letters.
+            </summary>
+        </member>
+        <member name="F:GmxVCount.TextBlocks.WordBoundaryRule.WB5a">
+            <summary>
+            Break between apostrophe and vowels (French, Italian).
+            </summary>
+        </member>
+        <member name="F:GmxVCount.TextBlocks.WordBoundaryRule.WB6">
+            <summary>
+            Do not break across certain punctuation.
+            </summary>
+        </member>
+        <member name="F:GmxVCount.TextBlocks.WordBoundaryRule.WB7">
+            <summary>
+            Do not break across certain punctuation.
+            </summary>
+        </member>
+        <member name="F:GmxVCount.TextBlocks.WordBoundaryRule.WB8">
+            <summary>
+            Do not break within sequences of digits, or digits adjacent to letters.
+            </summary>
+        </member>
+        <member name="F:GmxVCount.TextBlocks.WordBoundaryRule.WB9">
+            <summary>
+            Do not break within sequences of digits, or digits adjacent to letters.
+            </summary>
+        </member>
+        <member name="F:GmxVCount.TextBlocks.WordBoundaryRule.WB10">
+            <summary>
+            Do not break within sequences of digits, or digits adjacent to letters.
+            </summary>
+        </member>
+        <member name="F:GmxVCount.TextBlocks.WordBoundaryRule.WB11">
+            <summary>
+            Do not break within sequences, such as "3.2" or "3,456.789".
+            </summary>
+        </member>
+        <member name="F:GmxVCount.TextBlocks.WordBoundaryRule.WB12">
+            <summary>
+            Do not break within sequences, such as "3.2" or "3,456.789".
+            </summary>
+        </member>
+        <member name="F:GmxVCount.TextBlocks.WordBoundaryRule.WB13">
+            <summary>
+            Do not break between Katakana.
+            </summary>
+        </member>
+        <member name="F:GmxVCount.TextBlocks.WordBoundaryRule.WB13a">
+            <summary>
+            Do not break from extenders.
+            </summary>
+        </member>
+        <member name="F:GmxVCount.TextBlocks.WordBoundaryRule.WB13b">
+            <summary>
+            Do not break from extenders.
+            </summary>
+        </member>
+        <member name="F:GmxVCount.TextBlocks.WordBoundaryRule.WB14">
+            <summary>
+            Otherwise, break everywhere.
+            </summary>
+        </member>
+        <member name="T:GmxVCount.TR29.Categories">
+            <summary>
+            A static class which contains arrays of characters within 
+            the TR29 categories.
+            </summary>
+            <summary>
+            A static class which contains arrays of characters within 
+            the TR29 categories.
+            </summary>
+            <summary>
+            A static class which contains arrays of characters within 
+            the TR29 categories.
+            </summary>
+            <summary>
+            A static class which contains arrays of characters within 
+            the TR29 categories.
+            </summary>
+            <summary>
+            A static class which contains arrays of characters within 
+            the TR29 categories.
+            </summary>
+            <summary>
+            A static class which contains arrays of characters within 
+            the TR29 categories.
+            </summary>
+            <summary>
+            A static class which contains arrays of characters within 
+            the TR29 categories.
+            </summary>
+            <summary>
+            A static class which contains arrays of characters within 
+            the TR29 categories.
+            </summary>
+            <summary>
+            A static class which contains arrays of characters within 
+            the TR29 categories.
+            </summary>
+            <summary>
+            A static class which contains arrays of characters within 
+            the TR29 categories.
+            </summary>
+            <summary>
+            A static class which contains arrays of characters within 
+            the TR29 categories.
+            </summary>
+            <summary>
+            A static class which contains arrays of characters within 
+            the TR29 categories.
+            </summary>
+            <summary>
+            A static class which contains arrays of characters within 
+            the TR29 categories.
+            </summary>
+            <summary>
+            A static class which contains arrays of characters within 
+            the TR29 categories.
+            </summary>
+            <summary>
+            A static class which contains arrays of characters within 
+            the TR29 categories.
+            </summary>
+        </member>
+        <member name="F:GmxVCount.TR29.Categories.apostrophe">
+            <summary>
+            Members of the Apostrophe category.
+            </summary>
+        </member>
+        <member name="F:GmxVCount.TR29.Categories.hyphen">
+            <summary>
+            Members of the vowels category.
+            </summary>
+        </member>
+        <member name="F:GmxVCount.TR29.Categories.vowel">
+            <summary>
+            Members of the vowels category.
+            </summary>
+        </member>
+        <member name="F:GmxVCount.TR29.Categories.aletter">
+            <summary>
+            Members of the ALetter category.
+            </summary>
+        </member>
+        <member name="F:GmxVCount.TR29.Categories.cr">
+            <summary>
+            Members of the carriage return category.
+            </summary>
+        </member>
+        <member name="F:GmxVCount.TR29.Categories.extend">
+            <summary>
+            Members of the extend category.
+            </summary>
+        </member>
+        <member name="F:GmxVCount.TR29.Categories.extendnumlet">
+            <summary>
+            Members of the extendnumlet category.
+            </summary>
+        </member>
+        <member name="F:GmxVCount.TR29.Categories.format">
+            <summary>
+            Members of the format category.
+            </summary>
+        </member>
+        <member name="F:GmxVCount.TR29.Categories.katakana">
+            <summary>
+            Members of the katakana category.
+            </summary>
+        </member>
+        <member name="F:GmxVCount.TR29.Categories.lf">
+            <summary>
+            Members of the linefeed category.
+            </summary>
+        </member>
+        <member name="F:GmxVCount.TR29.Categories.midletter">
+            <summary>
+            Members of the midletter category.
+            </summary>
+        </member>
+        <member name="F:GmxVCount.TR29.Categories.midnum">
+            <summary>
+            Members of the midnum category.
+            </summary>
+        </member>
+        <member name="F:GmxVCount.TR29.Categories.midnumlet">
+            <summary>
+            Members of the midnumlet category.
+            </summary>
+        </member>
+        <member name="F:GmxVCount.TR29.Categories.newline">
+            <summary>
+            Members of the newline category.
+            </summary>
+        </member>
+        <member name="F:GmxVCount.TR29.Categories.numeric">
+            <summary>
+            Members of the numeric category.
+            </summary>
+        </member>
+        <member name="T:GmxVCount.TR29.TextSegmentationHelper">
+            <summary>
+            A helper class to provide text segmentation assistance.
+            </summary>
+        </member>
+        <member name="M:GmxVCount.TR29.TextSegmentationHelper.IsInCategory(GmxVCount.TR29.UnicodeWordBreakCategory,System.Char)">
+            <summary>
+            Determines whether a given character is within a particular category.
+            </summary>
+            <param name="category">The category to check.</param>
+            <param name="c">The character to check whether it's in the specified category.</param>
+            <returns>True if the character is found within the specified category, false if not.</returns>
+        </member>
+        <member name="T:GmxVCount.TR29.UnicodeWordBreakCategory">
+            <summary>
+            The category of the Unicode Word Break, as defined in TR29.
+            </summary>
+        </member>
+        <member name="F:GmxVCount.TR29.UnicodeWordBreakCategory.ALetter">
+            <summary>
+            The ALetter category.
+            </summary>
+        </member>
+        <member name="F:GmxVCount.TR29.UnicodeWordBreakCategory.Apostrophe">
+            <summary>
+            The Apostrophe category - an optional rule for the apostrophe character 
+            (see Unicode TR 29 Section 4)
+            </summary>
+        </member>
+        <member name="F:GmxVCount.TR29.UnicodeWordBreakCategory.CR">
+            <summary>
+            The Carriage Return category.
+            </summary>
+        </member>
+        <member name="F:GmxVCount.TR29.UnicodeWordBreakCategory.Extend">
+            <summary>
+            The Extend category.
+            </summary>
+        </member>
+        <member name="F:GmxVCount.TR29.UnicodeWordBreakCategory.ExtendNumLet">
+            <summary>
+            The ExtendNumLet category.
+            </summary>
+        </member>
+        <member name="F:GmxVCount.TR29.UnicodeWordBreakCategory.Format">
+            <summary>
+            The Format category.
+            </summary>
+        </member>
+        <member name="F:GmxVCount.TR29.UnicodeWordBreakCategory.Katakana">
+            <summary>
+            The Japanese Katakana category.
+            </summary>
+        </member>
+        <member name="F:GmxVCount.TR29.UnicodeWordBreakCategory.LF">
+            <summary>
+            The Line Feed category.
+            </summary>
+        </member>
+        <member name="F:GmxVCount.TR29.UnicodeWordBreakCategory.MidLetter">
+            <summary>
+            The MidLetter category.
+            </summary>
+        </member>
+        <member name="F:GmxVCount.TR29.UnicodeWordBreakCategory.MidNum">
+            <summary>
+            The MidNum category.
+            </summary>
+        </member>
+        <member name="F:GmxVCount.TR29.UnicodeWordBreakCategory.MidNumLet">
+            <summary>
+            The MidNumLet category.
+            </summary>
+        </member>
+        <member name="F:GmxVCount.TR29.UnicodeWordBreakCategory.Newline">
+            <summary>
+            The New Line category.
+            </summary>
+        </member>
+        <member name="F:GmxVCount.TR29.UnicodeWordBreakCategory.Numeric">
+            <summary>
+            The Numeric category.
+            </summary>
+        </member>
+        <member name="F:GmxVCount.TR29.UnicodeWordBreakCategory.Vowel">
+            <summary>
+            The custom vowels category, defined as part of the 
+            Break between apostrophe and vowels (French, Italian) rule.
+            </summary>
+        </member>
+        <member name="F:GmxVCount.TR29.UnicodeWordBreakCategory.Hyphen">
+            <summary>
+            The custom hyphen category, added by GMX/V section 2.8.
+            </summary>
+        </member>
+        <member name="T:GmxVCount.WordCounter.GmxVWordCounter">
+            <summary>
+            A class which provides a GMX/V compliant word count.
+            </summary>
+        </member>
+        <member name="M:GmxVCount.WordCounter.GmxVWordCounter.CountWords(System.IO.Stream)">
+            <summary>
+            Counts the words in a given XLIFF document.
+            </summary>
+            <param name="xliffDocumentStream">The XLIFF document to count.</param>
+            <returns>An array of WordCountValues, one per file element within the XLIFF file.</returns>
+        </member>
+        <member name="M:GmxVCount.WordCounter.GmxVWordCounter.CountWords(System.Xml.Linq.XDocument)">
+            <summary>
+            Counts the words in a given XLIFF document.
+            </summary>
+            <param name="xliffDocument">The XLIFF document to count.</param>
+            <returns>Metrics.</returns>
+        </member>
+        <member name="M:GmxVCount.WordCounter.GmxVWordCounter.AnalyseXliffFileElement(System.Xml.Linq.XElement)">
+            <summary>
+            Analyses an XLIFF file element to determine the word counts.
+            </summary>
+            <param name="file">A file element from an XLIFF file.</param>
+            <returns>A collection of Word Counts (one word count per translation unit).</returns>
+        </member>
+        <member name="M:GmxVCount.WordCounter.GmxVWordCounter.AnalyseXliffFileElement(System.Xml.XmlNamespaceManager,System.Xml.Linq.XElement)">
+            <summary>
+            Analyses an XLIFF file element to determine the word counts.
+            </summary>
+            <param name="namespaceManager">The namespaceManager used to identify XML namespaces.</param>
+            <param name="file">A file element from an XLIFF file.</param>
+            <returns>A collection of Word Counts (one word count per translation unit).</returns>
+        </member>
+        <member name="M:GmxVCount.WordCounter.GmxVWordCounter.ExtractText(System.Xml.Linq.XElement)">
+            <summary>
+            Extracts text from an XLIFF inline element, subflow or marker.
+            </summary>
+            <param name="element">The XLIFF element.</param>
+            <returns>Text extracted from text-containing nodes.</returns>
+        </member>
+        <member name="M:GmxVCount.WordCounter.GmxVWordCounter.ExtractEquivalentText(System.Xml.Linq.XElement)">
+            <summary>
+            Extracts Equivalent Text from the inline elements, where available.
+            </summary>
+            <param name="e">The g, x, bx, ex, bpt, ept, ph or it element.</param>
+            <returns>Equivalent Text from the inline elements, where available, or string.Empty.</returns>
+        </member>
+        <member name="M:GmxVCount.WordCounter.GmxVWordCounter.ExtractTextFromChildNodes(System.Collections.Generic.IEnumerable{System.Xml.Linq.XNode})">
+            <summary>
+            Extracts text nodes from Child Nodes of an XLIFF document.
+            </summary>
+            <param name="childNodes">The XLIFF child nodes to test.</param>
+        </member>
+        <member name="M:GmxVCount.WordCounter.GmxVWordCounter.CountWords(System.String,System.Globalization.CultureInfo)">
+            <summary>
+            Counts Words according to the rules set out at http://www.unicode.org/reports/tr29/#Word_Boundaries
+            </summary>
+            <param name="text">The text to count.</param>
+            <param name="culture">The culture of the word count.</param>
+            <returns></returns>
+        </member>
+        <member name="M:GmxVCount.WordCounter.GmxVWordCounter.CountWords(System.String,GmxVCount.Language)">
+            <summary>
+            Counts Words according to the rules set out at http://www.unicode.org/reports/tr29/#Word_Boundaries
+            </summary>
+            <param name="text">The text to count.</param>
+            <param name="culture">The culture of the word count.</param>
+            <returns></returns>
+        </member>
+        <member name="T:GmxVCount.WordCounter.WordCountValue">
+            <summary>
+            Represents a Word Count based on word boundaries
+            as specified by TR29.
+            </summary>
+        </member>
+        <member name="M:GmxVCount.WordCounter.WordCountValue.#ctor(GmxVCount.Language)">
+            <summary>
+            Creates an instance of the WordCountValue type.
+            </summary>
+            <param name="sourceCulture">The Source Culture of the Word Count.</param>
+        </member>
+        <member name="P:GmxVCount.WordCounter.WordCountValue.CharacterCount">
+            <summary>
+            Retrieves the Character Count from the TextBlock data.
+            </summary>
+        </member>
+        <member name="P:GmxVCount.WordCounter.WordCountValue.WordCount">
+            <summary>
+            Retrieves the Word Count from the TextBlock data.
+            </summary>
+        </member>
+        <member name="P:GmxVCount.WordCounter.WordCountValue.Data">
+            <summary>
+            The underlying data used to determine the word count.
+            </summary>
+        </member>
+        <member name="M:GmxVCount.WordCounter.WordCountValue.ToGmxV(GmxVCount.Language,System.Int32,System.Int32)">
+            <summary>
+            Returns a minimal GMX/V document containing the Total Word Count and Total
+            Character Count.
+            </summary>
+            <param name="sourceCulture">The source culture of the analysis.</param>
+            <param name="characterCount">The character count of the analysis.</param>
+            <param name="wordCount">The word count of the analysis.</param>
+            <returns>An XML document containing a GMX/V document.</returns>
+        </member>
+        <member name="M:GmxVCount.WordCounter.WordCountValue.ToGmxV">
+            <summary>
+            Returns a minimal GMX/V document containing the Total Word Count and Total
+            Character Count.
+            </summary>
+            <returns>An XML document containing a GMX/V document.</returns>
+        </member>
+        <member name="P:GmxVCount.WordCounter.WordCountValue.SourceCulture">
+            <summary>
+            The Source Culture of the Word Count.
+            </summary>
+        </member>
+        <member name="T:GmxVCount.WordCounter.WordCountValueCollection">
+            <summary>
+            A collection of individual word counts.
+            </summary>
+        </member>
+        <member name="P:GmxVCount.WordCounter.WordCountValueCollection.TotalCharacterCount">
+            <summary>
+            The total number of characters in the Word Count Value collection.
+            </summary>
+        </member>
+        <member name="P:GmxVCount.WordCounter.WordCountValueCollection.TotalWordCount">
+            <summary>
+            The total number of words in the Word Count Value collection.
+            </summary>
+        </member>
+        <member name="M:GmxVCount.WordCounter.WordCountValueCollection.ToGmxV">
+            <summary>
+            Returns a minimal GMX/V document containing the Total Word Count and Total
+            Character Count.
+            </summary>
+            <returns>An list of XML documents containing GMX/V documents (one per source language).</returns>
+        </member>
+        <member name="T:GmxVCount.WordCounter.XmlUtilities.SimpleNameTable">
+            <summary>
+            A class used to create a very simple XmlNameTable.  Example taken from:
+            http://stackoverflow.com/questions/879728/can-i-use-predefined-namespaces-when-loading-an-xdocument
+            </summary>
+        </member>
+        <member name="M:GmxVCount.WordCounter.XmlUtilities.SimpleNameTable.Add(System.String)">
+            <summary>
+            Adds data to the cache.
+            </summary>
+            <param name="array"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GmxVCount.WordCounter.XmlUtilities.SimpleNameTable.Add(System.Char[],System.Int32,System.Int32)">
+            <summary>
+            Adds data to the cache.
+            </summary>
+            <param name="array"></param>
+            <param name="offset"></param>
+            <param name="length"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GmxVCount.WordCounter.XmlUtilities.SimpleNameTable.Get(System.String)">
+            <summary>
+            Gets an item from the Simple Name Table Cache.
+            </summary>
+            <param name="array"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GmxVCount.WordCounter.XmlUtilities.SimpleNameTable.Get(System.Char[],System.Int32,System.Int32)">
+            <summary>
+            Gets a string from the characters.
+            </summary>
+            <param name="array"></param>
+            <param name="offset"></param>
+            <param name="length"></param>
+            <returns></returns>
+        </member>
+        <member name="T:GmxVCount.WordCounter.XmlUtilities.XmlHelper">
+            <summary>
+            A class containing helper methods for loading XML from Streams.
+            </summary>
+        </member>
+        <member name="M:GmxVCount.WordCounter.XmlUtilities.XmlHelper.CreateReader(System.IO.StreamReader,System.String)">
+            <summary>
+            Creates an XmlReader with default settings for this application, based on the StreamReader
+            passed in.
+            </summary>
+            <param name="sr">The stream to read from.</param>
+            <param name="defaultNamespace">The default namespace to use, or an empty string.</param>
+            <returns>An XmlTextReader.</returns>
+        </member>
+    </members>
+</doc>
