@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!--This file represents the results of running a test suite-->
+<test-results name="C:\Users\tflorin\Documents\GitHub\gmx-v\GmxVCount.Tests\bin\Debug\GmxVCount.Tests.dll" total="37" errors="0" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2015-08-12" time="09:20:47">
+  <environment nunit-version="2.6.4.14350" clr-version="2.0.50727.8662" os-version="Microsoft Windows NT 6.2.9200.0" platform="Win32NT" cwd="C:\Users\tflorin\Documents\GitHub\gmx-v\GmxVCount.Tests" machine-name="DEVM-TFLORIN1" user="tflorin" user-domain="SAJANNET" />
+  <culture-info current-culture="en-US" current-uiculture="en-US" />
+  <test-suite type="Assembly" name="C:\Users\tflorin\Documents\GitHub\gmx-v\GmxVCount.Tests\bin\Debug\GmxVCount.Tests.dll" executed="True" result="Success" success="True" time="0.428" asserts="0">
+    <results>
+      <test-suite type="Namespace" name="GmxVCount" executed="True" result="Success" success="True" time="0.420" asserts="0">
+        <results>
+          <test-suite type="Namespace" name="Tests" executed="True" result="Success" success="True" time="0.420" asserts="0">
+            <results>
+              <test-suite type="TestFixture" name="TestSuite" executed="True" result="Success" success="True" time="0.420" asserts="0">
+                <results>
+                  <test-suite type="ParameterizedTest" name="Test" executed="True" result="Success" success="True" time="0.246" asserts="0">
+                    <results>
+                      <test-case name="GmxVCount.Tests.TestSuite.Test(&quot;en-GB&quot;,&quot;This is a test.&quot;,4)" executed="True" result="Success" success="True" time="0.175" asserts="1" />
+                      <test-case name="GmxVCount.Tests.TestSuite.Test(&quot;en-GB&quot;,&quot;This sentence has a word count of 9 words.&quot;,9)" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+                      <test-case name="GmxVCount.Tests.TestSuite.Test(&quot;en-GB&quot;,&quot;This sentence/text unit has a word count of 11 words.&quot;,11)" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+                      <test-case name="GmxVCount.Tests.TestSuite.Test(&quot;en-GB&quot;,&quot;This is a test&quot;,4)" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                      <test-case name="GmxVCount.Tests.TestSuite.Test(&quot;en-GB&quot;,&quot;This-is-a-single-word&quot;,1)" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                      <test-case name="GmxVCount.Tests.TestSuite.Test(&quot;zh-CN&quot;,&quot;\x8FD9\x662F\x6C49\x8BED\x3002&quot;,4)" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                      <test-case name="GmxVCount.Tests.TestSuite.Test(&quot;en-GB&quot;,&quot;I can\x2019t find that in L\x2019Observatore Romano.&quot;,7)" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+                      <test-case name="GmxVCount.Tests.TestSuite.Test(&quot;fr-FR&quot;,&quot;C\x2019est l\x2019oiseau bleu.&quot;,5)" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                      <test-case name="GmxVCount.Tests.TestSuite.Test(&quot;en-GB&quot;,&quot;Two  spaces   three   spaces&quot;,4)" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                      <test-case name="GmxVCount.Tests.TestSuite.Test(&quot;en-GB&quot;,&quot;WB1&quot;,1)" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                      <test-case name="GmxVCount.Tests.TestSuite.Test(&quot;en-GB&quot;,&quot;WB2&quot;,1)" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                      <test-case name="GmxVCount.Tests.TestSuite.Test(&quot;en-GB&quot;,&quot;WB3: This\r\nis&quot;,3)" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                      <test-case name="GmxVCount.Tests.TestSuite.Test(&quot;en-GB&quot;,&quot;WB5: shouldn\'t break between lEtTeRs.&quot;,5)" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+                      <test-case name="GmxVCount.Tests.TestSuite.Test(&quot;en-GB&quot;,&quot;WB6: Hyphens-don\'t-break.&quot;,2)" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                      <test-case name="GmxVCount.Tests.TestSuite.Test(&quot;en-GB&quot;,&quot;WB6: a:a&quot;,2)" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                      <test-case name="GmxVCount.Tests.TestSuite.Test(&quot;en-GB&quot;,&quot;WB7: a\'a&quot;,2)" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                      <test-case name="GmxVCount.Tests.TestSuite.Test(&quot;en-GB&quot;,&quot;WB8: 12345 - Don\'t break across sequences of digits.&quot;,8)" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+                      <test-case name="GmxVCount.Tests.TestSuite.Test(&quot;en-GB&quot;,&quot;WB9: This mixes numbers and letters: 123DB.&quot;,7)" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+                      <test-case name="GmxVCount.Tests.TestSuite.Test(&quot;en-GB&quot;,&quot;WB9: This mixes numbers and letters: A1c.&quot;,7)" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+                      <test-case name="GmxVCount.Tests.TestSuite.Test(&quot;en-GB&quot;,&quot;WB10: This mixes letters and numbers: DB123.&quot;,7)" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+                      <test-case name="GmxVCount.Tests.TestSuite.Test(&quot;en-GB&quot;,&quot;3.2&quot;,1)" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                      <test-case name="GmxVCount.Tests.TestSuite.Test(&quot;en-GB&quot;,&quot;10,000.00&quot;,1)" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+                      <test-case name="GmxVCount.Tests.TestSuite.Test(&quot;en-GB&quot;,&quot;WB12: Do not break within sequences, such as \x201C3.2\x201D or \x201C3,456.789\x201D.&quot;,11)" executed="True" result="Success" success="True" time="0.002" asserts="1" />
+                      <test-case name="GmxVCount.Tests.TestSuite.Test(&quot;ja-JP&quot;,&quot;\x79C1\x306F\x30D4\x30A2\x30CE\x304C\x51FA\x6765\x306A\x3044&quot;,7)" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+                      <test-case name="GmxVCount.Tests.TestSuite.Test(&quot;ja-JP&quot;,&quot;\x4FFA\x306F\x30C7\x30B8\x30BF\x30EB\x97F3\x697D\x304C\x597D\x304D&quot;,7)" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+                      <test-case name="GmxVCount.Tests.TestSuite.Test(&quot;ja-JP&quot;,&quot;\x30AA\x30D5\x4F1A\x3059\x308B\x8A33\x304C\x306A\x3044\xFF01&quot;,7)" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+                      <test-case name="GmxVCount.Tests.TestSuite.Test(&quot;en-GB&quot;,&quot;WB13a: a123__ extra extra.&quot;,4)" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+                      <test-case name="GmxVCount.Tests.TestSuite.Test(&quot;en-GB&quot;,&quot;a3__aa some more.&quot;,3)" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                      <test-case name="GmxVCount.Tests.TestSuite.Test(&quot;en-GB&quot;,&quot;WB13b: __variableName is here.&quot;,4)" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+                    </results>
+                  </test-suite>
+                  <test-suite type="ParameterizedTest" name="TestXliffWordCount" executed="True" result="Success" success="True" time="0.162" asserts="0">
+                    <results>
+                      <test-case name="GmxVCount.Tests.TestSuite.TestXliffWordCount(&quot;output.xlf&quot;,175,992)" executed="True" result="Success" success="True" time="0.142" asserts="2" />
+                      <test-case name="GmxVCount.Tests.TestSuite.TestXliffWordCount(&quot;xmlspace.xlf&quot;,28,150)" executed="True" result="Success" success="True" time="0.002" asserts="2" />
+                      <test-case name="GmxVCount.Tests.TestSuite.TestXliffWordCount(&quot;translatable.xlf&quot;,6,28)" executed="True" result="Success" success="True" time="0.001" asserts="2" />
+                      <test-case name="GmxVCount.Tests.TestSuite.TestXliffWordCount(&quot;inwordformatting.xlf&quot;,3,24)" executed="True" result="Success" success="True" time="0.001" asserts="2" />
+                      <test-case name="GmxVCount.Tests.TestSuite.TestXliffWordCount(&quot;chinese.xlf&quot;,0,21)" executed="True" result="Success" success="True" time="0.001" asserts="2" />
+                      <test-case name="GmxVCount.Tests.TestSuite.TestXliffWordCount(&quot;equivalenttext.xlf&quot;,9,49)" executed="True" result="Success" success="True" time="0.001" asserts="2" />
+                      <test-case name="GmxVCount.Tests.TestSuite.TestXliffWordCount(&quot;whitespace.xlf&quot;,12,111)" executed="True" result="Success" success="True" time="0.003" asserts="2" />
+                    </results>
+                  </test-suite>
+                  <test-case name="GmxVCount.Tests.TestSuite.WhitespaceTest" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                </results>
+              </test-suite>
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+    </results>
+  </test-suite>
+</test-results>

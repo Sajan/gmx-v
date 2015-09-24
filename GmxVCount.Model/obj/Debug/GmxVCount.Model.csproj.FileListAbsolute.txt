@@ -1,0 +1,6 @@
+C:\SajanSoftware\Special Weapons and Tactics\GCMS\Libraries\GMXV\GmxVCount.Model\bin\Debug\GmxVCount.Model.dll
+C:\SajanSoftware\Special Weapons and Tactics\GCMS\Libraries\GMXV\GmxVCount.Model\bin\Debug\GmxVCount.Model.pdb
+C:\SajanSoftware\Special Weapons and Tactics\GCMS\Libraries\GMXV\GmxVCount.Model\bin\Debug\System.Net.Http.dll
+C:\SajanSoftware\Special Weapons and Tactics\GCMS\Libraries\GMXV\GmxVCount.Model\obj\Debug\GmxVCount.Model.dll
+C:\SajanSoftware\Special Weapons and Tactics\GCMS\Libraries\GMXV\GmxVCount.Model\obj\Debug\GmxVCount.Model.pdb
+C:\SajanSoftware\Special Weapons and Tactics\GCMS\Libraries\GMXV\GmxVCount.Model\obj\Debug\GmxVCount.Model.csprojResolveAssemblyReference.cache
