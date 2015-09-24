@@ -1,12 +1,13 @@
-﻿
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using GmxVCount.WordCounter;
 using System.Xml.Linq;
 using System.IO;
 using System.Globalization;
 using NUnit.Framework;
 using System.Diagnostics;
-using GmxVCount.Model;
 
 namespace GmxVCount.Tests
 {
@@ -17,7 +18,7 @@ namespace GmxVCount.Tests
 		[TestCase("xmlspace.xlf", 28, 150)]
 		[TestCase("translatable.xlf", 6, 28)]
 		[TestCase("inwordformatting.xlf", 3, 24)]
-		[TestCase("chinese.xlf", 6, 21)]
+		[TestCase("chinese.xlf", 0, 21)]
 		[TestCase("equivalenttext.xlf", 9, 49)]
 		[TestCase("whitespace.xlf", 12, 111)]
 		public void TestXliffWordCount(string fileName, int expectedWordCount, int expectedCharacterCount)
@@ -36,9 +37,7 @@ namespace GmxVCount.Tests
 			}
 
 			// We should now have a single GMX/V document.
-			var wordCountGMXV = metrics.ToGmxV();
-            //wordCountGMXV.Save(@"C:\Users\tflorin\Documents\stuff.gmx");
-		    var wordCount = wordCountGMXV.ToXDocument();
+			XDocument wordCount = metrics.ToGmxV();
 
 			// Read back the values.
 			XElement stage = wordCount.Root.Element(XName.Get("stage", "urn:lisa-metrics-tags"));
@@ -129,7 +128,9 @@ namespace GmxVCount.Tests
 		// WB14 is excercised by there being any words counted at all.
 		public void Test(string culture, string text, int expectedWordCount)
 		{
-		    var words = GetWordCount(culture, text);
+			var language = new Language(culture);
+
+			WordCountValue words = GmxVWordCounter.CountWords(text, language);
 
 			// Display the total words.
 			Debug.WriteLine("Data: " + words.Data.Text);
@@ -139,26 +140,5 @@ namespace GmxVCount.Tests
 
 			Assert.That(actual, Is.EqualTo(expectedWordCount), string.Format(CultureInfo.InvariantCulture, "The test didn't pass.  Expected words: {0}.  Actual words: {1}.", expectedWordCount, actual));
 		}
-
-
-        [TestCase("ja-JP", "私はピアノが出来ない",3)]
-        [TestCase("zh-CN", "这是汉语。", 2)]
-        [TestCase("ko-KO", "안녕하세요 당신의 이름은 무엇입니까", 6)]
-        [TestCase("th", "สวัสดีคุณชื่ออะไร",2)]
-        //[TestCase("km", "ជំរាបសួរ អ្វីដែលជា ឈ្មោះរបស់អ្នក",3)]
-	    public void TestGmxv(string culture, string text, int expectedWordCount)
-        {
-            var wordCount = GetWordCount(culture, text);
-            var gmxVResource = wordCount.ToGmxV();
-            int actualWordCount =
-                gmxVResource.Stages.First().CountGroups.First().Counts.First(x => x.CountType == CountType.TotalWordCount).Value;
-            Assert.That(actualWordCount,Is.EqualTo(expectedWordCount), "The test didn't pass.  Expected words: {0}.  Actual words: {1}.",expectedWordCount,actualWordCount);
-        }
-
-	    private WordCountValue GetWordCount(string culture, string text)
-	    {
-	        var language = new Language(culture);
-	        return GmxVWordCounter.CountWords(text, language);
-	    }
 	}
 }

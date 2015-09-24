@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Xml.Linq;
 using System.Globalization;
-using GmxVCount.Model;
 
 namespace GmxVCount.WordCounter
 {
@@ -40,7 +39,7 @@ namespace GmxVCount.WordCounter
 		/// Character Count.
 		/// </summary>
 		/// <returns>An list of XML documents containing GMX/V documents (one per source language).</returns>
-		public SingleResourceMetrics ToGmxV()
+		public XDocument ToGmxV()
 		{
 			if (this.Select(wcv => wcv.SourceCulture).Distinct().Count() > 1)
 			{

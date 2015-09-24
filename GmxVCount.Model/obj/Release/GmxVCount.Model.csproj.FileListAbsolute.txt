@@ -1,6 +1,0 @@
-C:\SajanSoftware\Special Weapons and Tactics\GCMS\Libraries\GMXV\GmxVCount.Model\bin\Release\GmxVCount.Model.dll
-C:\SajanSoftware\Special Weapons and Tactics\GCMS\Libraries\GMXV\GmxVCount.Model\bin\Release\GmxVCount.Model.pdb
-C:\SajanSoftware\Special Weapons and Tactics\GCMS\Libraries\GMXV\GmxVCount.Model\bin\Release\System.Net.Http.dll
-C:\SajanSoftware\Special Weapons and Tactics\GCMS\Libraries\GMXV\GmxVCount.Model\obj\Release\GmxVCount.Model.csprojResolveAssemblyReference.cache
-C:\SajanSoftware\Special Weapons and Tactics\GCMS\Libraries\GMXV\GmxVCount.Model\obj\Release\GmxVCount.Model.dll
-C:\SajanSoftware\Special Weapons and Tactics\GCMS\Libraries\GMXV\GmxVCount.Model\obj\Release\GmxVCount.Model.pdb
