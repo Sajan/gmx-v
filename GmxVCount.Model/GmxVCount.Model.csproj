@@ -1,29 +1,38 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>8.0.30703</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{8C8E5364-A484-492D-9952-AEA99B91B0C3}</ProjectGuid>
+    <ProjectGuid>{3EB5D674-2288-4C6F-8D82-690B42F8D74C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>GmxVCount</RootNamespace>
-    <AssemblyName>GmxVCount</AssemblyName>
+    <RootNamespace>GmxVCount.Model</RootNamespace>
+    <AssemblyName>GmxVCount.Model</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <TargetFrameworkProfile>
-    </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
     <SccProjectName>SAK</SccProjectName>
     <SccLocalPath>SAK</SccLocalPath>
     <SccAuxPath>SAK</SccAuxPath>
     <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Deploy-EU|AnyCPU'">
     <OutputPath>bin\Deploy-EU\</OutputPath>
@@ -91,56 +100,31 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
-    <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\Debug\</OutputPath>
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
-  <ItemGroup>
-    <Compile Include="Language.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TextBlocks\Character.cs" />
-    <Compile Include="TextBlocks\TextBlock.cs" />
-    <Compile Include="TextBlocks\TextBlockParticle.cs" />
-    <Compile Include="TextBlocks\WordBoundary.cs" />
-    <Compile Include="TextBlocks\WordBoundaryRule.cs" />
-    <Compile Include="TR29\Categories\Apostophe.cs" />
-    <Compile Include="TR29\Categories\Hyphen.cs" />
-    <Compile Include="TR29\Categories\Vowel.cs" />
-    <Compile Include="TR29\TextSegmentationHelper.cs" />
-    <Compile Include="TR29\UnicodeWordBreakCategory.cs" />
-    <Compile Include="WordCounter\GmxVWordCounter.cs" />
-    <Compile Include="WordCounter\WordCountValue.cs" />
-    <Compile Include="WordCounter\WordCountValueCollection.cs" />
-    <Compile Include="WordCounter\XmlUtilities\SimpleNameTable.cs" />
-    <Compile Include="WordCounter\XmlUtilities\XmlHelper.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="TR29\Categories\ALetter.cs" />
-    <Compile Include="TR29\Categories\CR.cs" />
-    <Compile Include="TR29\Categories\Extend.cs" />
-    <Compile Include="TR29\Categories\ExtendNumLet.cs" />
-    <Compile Include="TR29\Categories\Format.cs" />
-    <Compile Include="TR29\Categories\Katakana.cs" />
-    <Compile Include="TR29\Categories\LF.cs" />
-    <Compile Include="TR29\Categories\MidLetter.cs" />
-    <Compile Include="TR29\Categories\MidNum.cs" />
-    <Compile Include="TR29\Categories\MidNumLet.cs" />
-    <Compile Include="TR29\Categories\Newline.cs" />
-    <Compile Include="TR29\Categories\Numeric.cs" />
-    <Content Include="WordBreakProperty.txt" />
-  </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.XML" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\GmxVCount.Model\GmxVCount.Model.csproj">
-      <Project>{3eb5d674-2288-4c6f-8d82-690b42f8d74c}</Project>
-      <Name>GmxVCount.Model</Name>
-    </ProjectReference>
+    <Compile Include="BaseMetrics.cs" />
+    <Compile Include="CountGroup\Count.cs" />
+    <Compile Include="CountGroup\CountGroup.cs" />
+    <Compile Include="CountGroup\CountType.cs" />
+    <Compile Include="PhaseType.cs" />
+    <Compile Include="CountGroup\VerifiableType.cs" />
+    <Compile Include="IdentifierXmlAttribute.cs" />
+    <Compile Include="ProjectMetrics.cs" />
+    <Compile Include="Project.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resource.cs" />
+    <Compile Include="SingleResourceMetrics.cs" />
+    <Compile Include="Stage.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
